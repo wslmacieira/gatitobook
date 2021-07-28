@@ -52,6 +52,10 @@
       "
       mensagem="Usuário deve ser em letra minuscúla"
     ></app-mensagem>
+    <app-mensagem
+      *ngIf="novoUsuarioForm.errors?.senhaIgualUsuario"
+      mensagem="Senha deve ser diferente do usuário"
+    ></app-mensagem>
   </div>
   <div class="mb-3">
     <input
