@@ -11,6 +11,6 @@ export class NovoUsuarioService {
   constructor(private http: HttpClient) { }
 
   cadastroNovousuario(novoUsario: NovoUsuario): Observable<NovoUsuario> {
-    return this.http.post<NovoUsuario>('http://localhost:3000/usuer/signup', novoUsario)
+    return this.http.post<NovoUsuario>('http://localhost:3000/user/signup', novoUsario)
   }
 }
