@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 const API = 'http://localhost:3000';
 
@@ -7,7 +7,7 @@ const API = 'http://localhost:3000';
   templateUrl: './animal.component.html',
   styleUrls: ['./animal.component.css'],
 })
-export class AnimalComponent implements OnInit {
+export class AnimalComponent {
   private urlOriginal = '';
 
   @Input() descricao = '';
@@ -26,5 +26,4 @@ export class AnimalComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
 }

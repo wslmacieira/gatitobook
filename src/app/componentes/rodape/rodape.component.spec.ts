@@ -1,4 +1,6 @@
+import { RouterTestingModule } from '@angular/router/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
 
 import { RodapeComponent } from './rodape.component';
 
@@ -8,9 +10,9 @@ describe('RodapeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RodapeComponent ]
-    })
-    .compileComponents();
+      declarations: [RodapeComponent],
+      imports: [RouterTestingModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

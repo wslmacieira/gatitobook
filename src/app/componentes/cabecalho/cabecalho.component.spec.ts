@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CabecalhoComponent } from './cabecalho.component';
@@ -8,7 +9,8 @@ describe('CabecalhoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CabecalhoComponent ]
+      declarations: [ CabecalhoComponent ],
+      imports: [ RouterModule]
     })
     .compileComponents();
   });
