@@ -1,6 +1,8 @@
+import { RouterTestingModule } from '@angular/router/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GradeFotosAnimaisComponent } from './grade-fotos-animais.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('GradeFotosAnimaisComponent', () => {
   let component: GradeFotosAnimaisComponent;
@@ -8,7 +10,9 @@ describe('GradeFotosAnimaisComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GradeFotosAnimaisComponent ]
+      declarations: [ GradeFotosAnimaisComponent ],
+      imports: [RouterTestingModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });
