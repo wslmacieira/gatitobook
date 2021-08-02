@@ -1,7 +1,10 @@
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DetalheAnimalComponent } from './detalhe-animal.component';
+import { ActivatedRoute } from '@angular/router';
 
 describe('DetalheAnimalComponent', () => {
   let component: DetalheAnimalComponent;
@@ -10,7 +13,8 @@ describe('DetalheAnimalComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ DetalheAnimalComponent ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports: [HttpClientModule, RouterTestingModule]
     })
     .compileComponents();
   });
