@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { UsuarioService } from 'src/app/autenticacao/usuario/usuario.service';
+import { UsuarioService } from '../../../app/autenticacao/usuario/usuario.service';
 import { AnimaisService } from '../animais.service';
 import { Animais } from '../animal';
 

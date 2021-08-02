@@ -1,3 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListaAnimaisComponent } from './lista-animais.component';
@@ -8,7 +10,9 @@ describe('ListaAnimaisComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListaAnimaisComponent ]
+      declarations: [ ListaAnimaisComponent ],
+      imports: [HttpClientModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });
