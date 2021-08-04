@@ -1,22 +1,42 @@
 import { Observable } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Comentarios } from './comentarios';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ComentariosService } from './comentarios.service';
+import { switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-comentarios',
   templateUrl: './comentarios.component.html',
-  styleUrls: ['./comentarios.component.css']
+  styleUrls: ['./comentarios.component.css'],
 })
 export class ComentariosComponent implements OnInit {
+  @Input() id!: number;
   comentarios$!: Observable<Comentarios>;
   comentarioForm!: FormGroup;
 
-  constructor() { }
+  constructor(
+    private comentariosService: ComentariosService,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
+    this.comentarios$ = this.comentariosService.buscaComentario(this.id);
+    this.comentarioForm = this.fb.group({
+      comentario: ['', Validators.maxLength(300)],
+    });
   }
 
-  gravar() {}
-
+  gravar(): void {
+    const comentario = this.comentarioForm.get('comentario')?.value ?? '';
+    this.comentarios$ = this.comentariosService
+      .incluiComentario(this.id, comentario)
+      .pipe(
+        switchMap(() => this.comentariosService.buscaComentario(this.id)),
+        tap(() => {
+          this.comentarioForm.reset();
+          alert('Comentario salvo!');
+        })
+      );
+  }
 }
