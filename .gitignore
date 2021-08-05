@@ -104,3 +104,4 @@ dist
 .tern-port
 
 api/uploads/imgs/**
+api/data.db
